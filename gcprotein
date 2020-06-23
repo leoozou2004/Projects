@@ -1,0 +1,45 @@
+
+import random	
+import re
+from Bio import SeqIO
+from Bio.SeqUtils import GC
+from Bio.Seq import Seq
+def LongestProtein(seq):
+	largest=0
+	x=[]
+	for i in range(3):
+		rem=(len(seq)-i)%3
+		sequence=seq[i:len(seq)-rem]
+		proteinseq=sequence.translate()
+		proteinlist=proteinseq.rsplit("*")
+		for a in proteinlist:
+			largest=max(len(a), largest)
+			x.append(largest)
+	return max(x)
+def AvgLongestProtein(GCpercent):
+	RandList=[]
+	for c in range(0,50):
+		seq=""
+		for i in range(0,10000):
+			a=random.randint(0,200)
+			if a>=0 and a<GCpercent:
+				seq=seq+"G"
+			elif a>=GCpercent and a<=2*GCpercent:
+				seq=seq+"C"
+			elif a>2*GCpercent and a<=2*GCpercent+(100-GCpercent):
+				seq=seq+"A"
+			else:
+				seq=seq+"T"
+		RandList.append(seq)
+	sum=0
+	for x in RandList:
+		g=Seq(x)
+		sum=sum+LongestProtein(g)
+	avgLength=sum/len(RandList)
+	return avgLength	
+
+print("The average longest protein sequence in 50 random sequences with a given GC percent is")
+for gcpercent in range(15,85,5):
+	print(gcpercent, end =" ")
+	print(":", end =" ")
+	print(AvgLongestProtein(gcpercent))
