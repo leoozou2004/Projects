@@ -1,0 +1,59 @@
+list=["possible-copyin", "tely-suggests-a","our-notice-that", "ice-that-the-sp", "ible-copying-me",
+"uggests-a-possi", "-suggests-a-pos", "anism-for-the-g", "lated-immediate", "ped-our-notice-",
+"ly-suggests-a-p", "e-copying-mecha", "ying-mechanism-", "ts-a-possible-c","ossible-copying",
+"pying-mechanism", "the-genetic-mat", "-immediately-su", "pecific-pairing", "uggests-a-possi",
+"e-copying-mecha", "copying-mechani", "tely-suggests-a," "aped-our-notice", "immediately-sug",
+"ated-immediatel", "ng-we-have-post", "ing-mechanism-f", "mediately-sugge", "iately-suggests",
+"suggests-a-poss", "ur-notice-that-", "-have-postulate", "ur-notice-that-", "fic-pairing-we-",
+"-we-have-postul", "e-genetic-mater", "ostulated-immed", "lated-immediate", "e-genetic-mater",
+"ostulated-immed", "ed-immediately-", "ce-that-the-spe", "notice-that-the", "-pairing-we-hav",
+"ing-we-have-pos", "-for-the-geneti", "as-not-escaped-", "t-has-not-escap", "-postulated-imm",
+"e-postulated-im", "t-the-specific-", "ests-a-possible", "-not-escaped-ou", "immediately-sug",
+"e-that-the-spec", "ossible-copying", "iately-suggests", "otice-that-the-", "ng-we-have-post",
+"-pairing-we-hav", "has-not-escaped", "e-have-postulat", "ely-suggests-a-", "ely-suggests-a-",
+"e-specific-pair", "ble-copying-mec", "-genetic-materi", "-our-notice-tha", "mmediately-sugg",
+"pying-mechanism", "-our-notice-tha", "notice-that-the", "caped-our-notic", "tice-that-the-s",
+"-that-the-speci", "e-copying-mecha", "-copying-mechan", "possible-copyin", "ve-postulated-i",
+"ted-immediately", "-postulated-imm", "ng-mechanism-fo", "specific-pairin", "e-specific-pair",
+"ice-that-the-sp", "-for-the-geneti", "ulated-immediat", "-the-specific-p", "escaped-our-not",
+"ediately-sugges", "at-the-specific", "ped-our-notice-", "-that-the-speci", "ests-a-possible",
+"ggests-a-possib", "ecific-pairing-", "not-escaped-our", "sm-for-the-gene", "ve-postulated-i",
+"for-the-genetic", "the-genetic-mat", "ely-suggests-a-", "ely-suggests-a-", "-copying-mechan",
+"our-notice-that", "ing-we-have-pos", "ave-postulated-", "stulated-immedi", "-not-escaped-ou",
+"caped-our-notic", "e-that-the-spec", "a-possible-copy", "notice-that-the", "he-specific-pai",
+"e-have-postulat", "ic-pairing-we-h", "-possible-copyi", "ng-we-have-post", "It-has-not-esca",
+"r-the-genetic-m", "the-genetic-mat", "stulated-immedi", "g-mechanism-for", "sible-copying-m",
+"that-the-specif", "e-specific-pair", "has-not-escaped", "ve-postulated-i", "ic-pairing-we-h",
+"ur-notice-that-", "ing-we-have-pos", "-notice-that-th", "ible-copying-me", "otice-that-the-",
+"ve-postulated-i", "-postulated-imm", "iately-suggests", "d-our-notice-th", "cific-pairing-w",
+"diately-suggest", "pairing-we-have", "-postulated-imm", "t-the-specific-", "g-mechanism-for",
+"stulated-immedi", "ur-notice-that-", "a-possible-copy", "e-postulated-im", "anism-for-the-g",
+"or-the-genetic-", "anism-for-the-g", "we-have-postula", "ely-suggests-a-", "r-notice-that-t",
+"t-escaped-our-n", "-copying-mechan", "chanism-for-the", "t-escaped-our-n", "we-have-postula",
+"specific-pairin", "r-notice-that-t", "hanism-for-the-", "ce-that-the-spe", "copying-mechani",
+"pying-mechanism", "for-the-genetic", "ecific-pairing-", "ostulated-immed", "ly-suggests-a-p",
+"t-has-not-escap", "we-have-postula", "otice-that-the-", "ng-we-have-post", "has-not-escaped",
+"ice-that-the-sp", "ble-copying-mec", "tice-that-the-s", "r-the-genetic-m", "as-not-escaped-",
+"the-genetic-mat", "e-specific-pair", "immediately-sug", "aped-our-notice", "mediately-sugge",
+"ice-that-the-sp", "has-not-escaped", "c-pairing-we-ha", "-the-genetic-ma", "diately-suggest",
+"that-the-specif", "mmediately-sugg", "-copying-mechan", "ying-mechanism-", "pying-mechanism",
+"-for-the-geneti", "e-postulated-im", "g-we-have-postu", "y-suggests-a-po", "fic-pairing-we-",
+"hat-the-specifi", "scaped-our-noti", "pying-mechanism", "specific-pairin", "pying-mechanism",
+"as-not-escaped-", "tulated-immedia", "not-escaped-our", "-copying-mechan", "lated-immediate",
+"ce-that-the-spe", "ism-for-the-gen", "ulated-immediat", "ng-we-have-post", "chanism-for-the",
+"anism-for-the-g", "ic-pairing-we-h", "-genetic-materi", "ble-copying-mec", "diately-suggest",
+"possible-copyin", "y-suggests-a-po", "-possible-copyi", "possible-copyin", "pairing-we-have",
+"m-for-the-genet", "postulated-imme", "copying-mechani", "ice-that-the-sp", "sible-copying-m",
+"possible-copyin", "ately-suggests-", "ssible-copying-", "opying-mechanis", "escaped-our-not"]
+
+def combine(list):
+	sent=list[0]
+	for i in range(len(list)):
+		for b in list:
+			if(sent[0:13]==b[1:14] and sent[0:15]!=b):
+				sent=b[0:1]+sent
+			elif(sent[len(sent)-13:len(sent)]==b[0:13] and sent!=b):
+				sent=sent+b[13:14]
+	return sent
+
+print(combine(list))
