@@ -46,8 +46,7 @@ def combine(list):
 			if b.find(sent[len(sent)-10:len(sent)])> -1:
 				minilist=b.partition(sent[len(sent)-10:len(sent)])
 				sent=sent+minilist[2]
-	print(len(list))
-	print(len(sent))
 	return sent
 
 print(combine(list))
+
