@@ -1,0 +1,28 @@
+from Bio.SeqUtils import GC
+from Bio.Seq import Seq
+f=open("/share/Human/chrX.fa","r")
+chrX=f.readlines()
+f=open("OPN1MW","r")
+OPN1MW=f.readlines()
+def combine(x):
+	seq=""
+	for i in range(1,len(x)):
+		x[i]=x[i].rstrip()
+		seq=seq+x[i]
+	return seq
+OPN1MW=combine(OPN1MW)
+print(OPN1MW[988])
+OPN1MWmodified=OPN1MW[0:988]+"A"+OPN1MW[989:len(OPN1MW)]
+OPN1MW=Seq(OPN1MW).translate()
+OPN1MWmodified=Seq(OPN1MWmodified).translate()
+print(OPN1MW)
+print("")
+print(OPN1MWmodified)
+print("")
+for i in range(len(OPN1MW)):
+	if OPN1MW[i]!=OPN1MWmodified[i]:
+		print("index of protein change:")
+		print(i+1)
+		print("Original protein:"+OPN1MW[i])
+		print("Modified Protein:"+OPN1MWmodified[i])
+

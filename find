@@ -5,3 +5,17 @@ for a in range(1,len(x)):
 	x[a]=x[a].rstrip()
 	chr12=chr12+x[a]
 print(chr12[111803961])
+
+f=open("ALDH2","r")
+y=f.readlines()
+y[1].rstrip()
+print(y[1][1509])
+
+f=open("/share/Human/chrX.fa","r")
+x=f.readlines()
+chr12=""
+for a in range(1,len(x)):
+        x[a]=x[a].rstrip()
+        chr12=chr12+x[a]
+print(chr12[111803961])
+
