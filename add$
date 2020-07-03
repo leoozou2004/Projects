@@ -1,0 +1,12 @@
+def inverse(x):
+	list=[]
+	for a in x:
+		list.append(a)
+		list.sort()
+	print(list)
+	for i in range(len(x)-1):
+		for a in range(len(x)):
+			list[a]=x[a]+list[a]
+		list.sort()
+	return list
+print(inverse("DVAAN$E"))

@@ -1,0 +1,15 @@
+from Bio.SeqUtils import GC
+from Bio.Seq import Seq
+f=open("ALDH2","r")
+y=f.readlines()
+y[1].rstrip()
+ALDH2=y[1]
+ALDH2modified=ALDH2
+ALDH2modified=ALDH2[0:1509]+"A"+ALDH2[1510:len(ALDH2)]
+ALDH2=Seq(ALDH2)
+print(ALDH2[0])
+ALDH2modified=Seq(ALDH2modified)
+print(ALDH2.translate())
+print("")
+print(ALDH2modified.translate())
+print(len(ALDH2))
